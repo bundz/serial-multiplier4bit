@@ -1,0 +1,30 @@
+entity counter is 
+
+	port (clock: in std_logic;
+			clear: in std_logic;
+			output: out std_logic_vector (1 downto 0));
+	
+end counter;
+
+architecture counterArq of counter is
+	
+	signal number: std_logic_vector (1 downto 0);
+	number <= output;
+
+	begin 
+		process(clock, clear)
+		begin
+			if(clear = '1')
+				output <= '00';
+			elsif(number = '00')
+				output <= '01';
+			end if;
+			elsif(number - '01')
+				output <= '10'
+			end if;
+			elsif(number - '10')
+				output <= '11';
+			end if;
+			
+		end process;
+end counterArq;
